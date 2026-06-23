@@ -1,0 +1,581 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a0a12;--bg2:#0f0f1a;--bg3:#161624;--border:#ffffff0d;--border2:#ffffff18;
+  --text:#e8e8f0;--muted:#6b6b8a;
+  --acc:#7c5cfc;--acc2:#9d7fff;--acc-bg:#7c5cfc12;--acc-border:#7c5cfc35;
+  --green:#4ade80;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,10,18,0.90);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;}
+.nav-avatar{width:32px;height:32px;border-radius:8px;background:var(--acc-bg);border:1px solid var(--acc-border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--acc);font-family:'Space Mono',monospace;}
+.nav-links{display:flex;gap:6px;align-items:center;}
+.nav-links a{padding:6px 14px;border-radius:6px;font-size:13px;color:var(--muted);transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.nav-links a.contact-active{color:var(--acc);}
+.nav-cta{padding:8px 20px;border:1px solid var(--acc);color:var(--acc);border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;background:transparent;font-family:'Space Grotesk',sans-serif;transition:background 0.2s;}
+.nav-cta:hover{background:var(--acc-bg);}
+
+/* MAIN */
+main{max-width:1100px;margin:0 auto;padding:0 40px;}
+
+/* HERO - BIG EDITORIAL */
+.hero{padding:110px 0 60px;position:relative;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border:1px solid var(--border2);border-radius:999px;font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;margin-bottom:28px;letter-spacing:0.08em;text-transform:uppercase;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero-big{font-size:80px;font-weight:700;line-height:1.0;letter-spacing:-0.04em;margin-bottom:0;}
+.hero-big-acc{color:var(--acc2);}
+.hero-sub{font-size:16px;color:var(--muted);max-width:520px;margin:28px 0 40px;line-height:1.75;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-acc{padding:13px 30px;background:var(--acc);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:opacity 0.2s;}
+.btn-acc:hover{opacity:0.85;}
+.btn-outline{padding:13px 30px;background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:8px;font-size:14px;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:border-color 0.2s;}
+.btn-outline:hover{border-color:var(--acc);color:var(--acc);}
+
+/* Floating badges */
+.hero-badges{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;}
+.badge{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:12px;min-width:190px;}
+.badge-icon{width:32px;height:32px;border-radius:8px;background:var(--acc-bg);border:1px solid var(--acc-border);display:flex;align-items:center;justify-content:center;}
+.badge-icon svg{width:16px;height:16px;stroke:var(--acc);fill:none;stroke-width:1.8;}
+.badge-label{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;}
+.badge-val{font-size:15px;font-weight:700;color:var(--text);}
+
+/* ABOUT ME */
+.about-section{padding:80px 0 60px;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.about-left{}
+.about-right{display:flex;flex-direction:column;gap:20px;}
+.about-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px 24px;}
+.about-card-title{font-size:12px;font-family:'Space Mono',monospace;color:var(--acc);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;}
+.about-card p{font-size:14px;color:var(--muted);line-height:1.7;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.stat-box{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+.stat-num{font-size:28px;font-weight:700;color:var(--acc2);font-family:'Space Mono',monospace;}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* SECTION COMMON */
+section{padding:80px 0;}
+.sec-eyebrow{display:inline-block;padding:4px 14px;border:1px solid var(--acc-border);border-radius:999px;font-size:11px;color:var(--acc);font-family:'Space Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;}
+.sec-title{font-size:42px;font-weight:700;letter-spacing:-0.02em;margin-bottom:10px;}
+.sec-title em{font-style:normal;color:var(--acc2);}
+.sec-sub{font-size:15px;color:var(--muted);margin-bottom:48px;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.skill-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px 20px;transition:border-color 0.2s;}
+.skill-card:hover{border-color:var(--border2);}
+.skill-icon{width:40px;height:40px;border-radius:10px;background:var(--acc-bg);border:1px solid var(--acc-border);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.skill-icon svg{width:20px;height:20px;stroke:var(--acc);fill:none;stroke-width:1.8;}
+.skill-name{font-size:15px;font-weight:600;margin-bottom:14px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.stag{font-size:11px;padding:4px 10px;border:1px solid var(--border2);border-radius:999px;color:var(--muted);transition:border-color 0.2s,color 0.2s;}
+.stag.hl{border-color:var(--acc-border);color:var(--acc);background:var(--acc-bg);}
+
+/* PROJECTS */
+.proj-header-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;}
+.proj-count{font-size:13px;color:var(--muted);font-family:'Space Mono',monospace;}
+.proj-count span{color:var(--acc);}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:border-color 0.25s,transform 0.2s;}
+.proj-card:hover{border-color:var(--acc-border);transform:translateY(-2px);}
+.proj-thumb{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.proj-thumb-pcos{background:linear-gradient(135deg,#0a1628 0%,#0d2545 50%,#0a3d2e 100%);}
+.proj-thumb-aurora{background:linear-gradient(135deg,#1a0a28 0%,#2d1245 50%,#0a1a35 100%);}
+.proj-thumb-ocr{background:linear-gradient(135deg,#0a2028 0%,#0d3545 50%,#0a2820 100%);}
+.proj-thumb-churn{background:linear-gradient(135deg,#281a0a 0%,#453512 50%,#281a0a 100%);}
+.proj-thumb-inv{background:linear-gradient(135deg,#0d0a28 0%,#1a1045 50%,#0a0d35 100%);}
+.thumb-art{position:absolute;width:100%;height:100%;display:flex;align-items:center;justify-content:center;opacity:0.7;}
+.proj-cat{position:absolute;top:14px;left:14px;padding:4px 12px;border:1px solid rgba(124,92,252,0.4);border-radius:999px;font-size:11px;color:var(--acc2);background:rgba(124,92,252,0.1);font-family:'Space Mono',monospace;}
+.proj-explore{position:absolute;bottom:14px;right:14px;font-size:12px;color:var(--muted);font-family:'Space Mono',monospace;opacity:0;}
+.proj-card:hover .proj-explore{opacity:1;}
+.proj-body{padding:20px 22px 22px;}
+.proj-title{font-size:17px;font-weight:700;margin-bottom:6px;}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
+.proj-stack{display:flex;flex-wrap:wrap;gap:6px;}
+.ptag{font-size:11px;padding:3px 10px;border:1px solid var(--border);border-radius:4px;color:var(--muted);font-family:'Space Mono',monospace;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:999;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#10101c;border:1px solid var(--border2);border-radius:20px;width:100%;max-width:820px;overflow:hidden;position:relative;}
+.modal-hero{height:280px;position:relative;display:flex;align-items:flex-end;padding:24px;}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,0.6);border:1px solid var(--border2);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;z-index:10;transition:color 0.2s;}
+.modal-close:hover{color:var(--text);}
+.modal-cat{padding:4px 12px;border:1px solid rgba(124,92,252,0.4);border-radius:999px;font-size:11px;color:var(--acc2);background:rgba(0,0,0,0.5);font-family:'Space Mono',monospace;display:inline-block;margin-bottom:8px;}
+.modal-title{font-size:32px;font-weight:700;text-shadow:0 2px 20px rgba(0,0,0,0.8);}
+.modal-subtitle{font-size:14px;color:rgba(255,255,255,0.6);margin-top:4px;}
+.modal-body{padding:32px;}
+.modal-desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px;}
+.modal-sections{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+.modal-sec{background:#0a0a16;border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+.modal-sec.full{grid-column:1/-1;}
+.modal-sec-title{font-size:14px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.modal-sec-title svg{width:16px;height:16px;stroke:var(--acc);fill:none;stroke-width:2;}
+.modal-sec p{font-size:13px;color:var(--muted);line-height:1.65;}
+.modal-stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.modal-tag{font-size:12px;padding:5px 12px;border:1px solid var(--acc-border);border-radius:6px;color:var(--acc2);background:var(--acc-bg);font-family:'Space Mono',monospace;}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:0;}
+.exp-item{display:grid;grid-template-columns:140px 1fr;gap:32px;padding:28px 0;border-bottom:1px solid var(--border);}
+.exp-item:first-child{border-top:1px solid var(--border);}
+.exp-date{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);padding-top:4px;}
+.exp-role{font-size:16px;font-weight:600;margin-bottom:4px;}
+.exp-org{font-size:13px;color:var(--acc2);margin-bottom:10px;font-family:'Space Mono',monospace;}
+.exp-desc{font-size:14px;color:var(--muted);line-height:1.65;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.contact-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px 24px;display:flex;align-items:center;gap:18px;transition:border-color 0.2s;cursor:pointer;}
+.contact-card:hover{border-color:var(--acc-border);}
+.contact-icon{width:48px;height:48px;border-radius:12px;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-icon svg{width:22px;height:22px;stroke:var(--acc);fill:none;stroke-width:1.8;}
+.contact-label{font-size:16px;font-weight:600;margin-bottom:3px;}
+.contact-val{font-size:13px;color:var(--acc2);margin-bottom:2px;font-family:'Space Mono',monospace;}
+.contact-hint{font-size:12px;color:var(--muted);}
+
+footer{border-top:1px solid var(--border);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;}
+.footer-left{font-size:13px;color:var(--muted);font-family:'Space Mono',monospace;}
+.footer-left span{color:var(--acc2);}
+.footer-right{font-size:12px;color:var(--muted);}
+
+svg.art{width:100%;height:100%;}
+</style>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-avatar">S</div>
+    <span>R. Sahana</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact" class="contact-active">Contact</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's talk</button>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-eyebrow"><span class="dot"></span> ML Engineer × Full-Stack Developer</div>
+  <h1 class="hero-big">Building<br><span class="hero-big-acc">AI-first</span><br>systems.</h1>
+  <p class="hero-sub">Software Engineering student at VIT Vellore. I ship ML pipelines, full-stack web apps, and AI-powered tools — focused on things that work in the real world.</p>
+  <div class="hero-btns">
+    <button class="btn-acc" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View Projects →</button>
+    <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+  </div>
+  <div class="hero-badges">
+    <div class="badge">
+      <div class="badge-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div>
+        <div class="badge-label">ML Projects</div>
+        <div class="badge-val">5+ shipped</div>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+      <div>
+        <div class="badge-label">CGPA</div>
+        <div class="badge-val">7.52 / 10</div>
+      </div>
+    </div>
+    <div class="badge">
+      <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div>
+        <div class="badge-label">Certs</div>
+        <div class="badge-val">4 earned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT ME -->
+<section id="about" class="about-section" style="padding-top:0;">
+  <div class="sec-eyebrow">✦ About Me</div>
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="sec-title" style="margin-bottom:18px;">Who I <em>am.</em></div>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:18px;">I'm Sahana, a 4th-year Integrated M.Tech student in Software Engineering at VIT Vellore. My work sits at the intersection of machine learning and full-stack development — I enjoy building systems that solve real problems, from healthcare AI to production-grade backend services.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:18px;">I'm actively looking for internships and placements where I can contribute to meaningful, high-impact work in AI/ML or full-stack engineering.</p>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">5+</div>
+          <div class="stat-lbl">Projects shipped</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">4</div>
+          <div class="stat-lbl">Certifications</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">7.54</div>
+          <div class="stat-lbl">CGPA / 10</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">2026</div>
+          <div class="stat-lbl">Open to work</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-card">
+        <div class="about-card-title">Currently</div>
+        <p>Integrated M.Tech · Software Engineering · VIT Vellore (2022–2027). Specialising in ML/AI systems and full-stack development.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-title">I'm good at</div>
+        <p>ML pipelines · Python · React/Next.js · Backend APIs · Prompt Engineering · Data analysis · System design</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-title">Beyond code</div>
+        <p>Competing in hackathons, exploring new papers in ML and systems design, and finding ways to turn complex ideas into tools people actually want to use.</p>
+      </div>
+      <div class="about-card" style="border-color:var(--acc-border);background:var(--acc-bg);">
+        <div class="about-card-title">Resume</div>
+        <p>View my full resume to see certifications, detailed project breakdowns, and academic background.</p>
+        <a href="https://drive.google.com/file/d/1pT2sRcfAHvQriEB7L9RkvJId5_7AReat/view?usp=sharing" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:9px 18px;background:var(--acc);color:#fff;border-radius:8px;font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif;">View Resume ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div>
+    <div class="sec-eyebrow">✦ Featured Work</div>
+    <div class="proj-header-row">
+      <div>
+        <div class="sec-title">Featured <em>Projects</em></div>
+        <div class="sec-sub">From ML research to production systems — built and shipped.</div>
+      </div>
+      <div class="proj-count"><span>4</span> case studies → Click to explore</div>
+    </div>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card" onclick="openModal('inv')">
+      <div class="proj-thumb proj-thumb-inv">
+        <div class="proj-cat">Backend Systems</div>
+        <svg class="art" viewBox="0 0 400 200"><rect x="80" y="60" width="240" height="80" rx="6" fill="none" stroke="#7c5cfc" stroke-width="0.8" opacity="0.5"/><rect x="100" y="80" width="60" height="40" rx="4" fill="#7c5cfc20"/><rect x="170" y="80" width="60" height="40" rx="4" fill="#7c5cfc15"/><rect x="240" y="80" width="60" height="40" rx="4" fill="#7c5cfc20"/><line x1="130" y1="60" x2="130" y2="40" stroke="#9d7fff" stroke-width="0.8" opacity="0.5"/><circle cx="130" cy="36" r="4" fill="#9d7fff" opacity="0.8"/><line x1="200" y1="60" x2="200" y2="30" stroke="#9d7fff" stroke-width="0.8" opacity="0.5"/><circle cx="200" cy="26" r="4" fill="#9d7fff" opacity="0.8"/><line x1="270" y1="60" x2="270" y2="40" stroke="#9d7fff" stroke-width="0.8" opacity="0.5"/><circle cx="270" cy="36" r="4" fill="#9d7fff" opacity="0.8"/><line x1="80" y1="160" x2="320" y2="160" stroke="#7c5cfc30" stroke-width="0.6"/><text x="200" y="175" text-anchor="middle" fill="#7c5cfc60" font-size="9" font-family="monospace">DISTRIBUTED QUEUE</text></svg>
+        <span class="proj-explore">View Case Study →</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Inventory Reservation System</div>
+        <div class="proj-desc">Conflict-free inventory management for a healthcare platform — prevents double-bookings using DB locking and a distributed queue. Fully deployed on Vercel.</div>
+        <div class="proj-stack">
+          <span class="ptag">Next.js</span><span class="ptag">PostgreSQL</span><span class="ptag">Redis</span><span class="ptag">TypeScript</span><span class="ptag">Vercel</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="openModal('pcos')">
+      <div class="proj-thumb proj-thumb-pcos">
+        <div class="proj-cat">Healthcare AI</div>
+        <svg class="art" viewBox="0 0 400 200"><circle cx="200" cy="100" r="60" fill="none" stroke="#7c5cfc" stroke-width="0.8" opacity="0.5"/><circle cx="200" cy="100" r="100" fill="none" stroke="#7c5cfc" stroke-width="0.4" opacity="0.3"/><circle cx="200" cy="100" r="140" fill="none" stroke="#7c5cfc" stroke-width="0.3" opacity="0.2"/><circle cx="200" cy="100" r="8" fill="#7c5cfc" opacity="0.8"/><line x1="200" y1="100" x2="140" y2="60" stroke="#7c5cfc" stroke-width="0.6" opacity="0.5"/><circle cx="140" cy="60" r="4" fill="#9d7fff" opacity="0.7"/><line x1="200" y1="100" x2="270" y2="70" stroke="#7c5cfc" stroke-width="0.6" opacity="0.5"/><circle cx="270" cy="70" r="4" fill="#9d7fff" opacity="0.7"/><line x1="200" y1="100" x2="260" y2="150" stroke="#7c5cfc" stroke-width="0.6" opacity="0.5"/><circle cx="260" cy="150" r="4" fill="#9d7fff" opacity="0.7"/><line x1="200" y1="100" x2="130" y2="145" stroke="#7c5cfc" stroke-width="0.6" opacity="0.5"/><circle cx="130" cy="145" r="4" fill="#9d7fff" opacity="0.7"/></svg>
+        <span class="proj-explore">View Case Study →</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">PCOS Detection & Medical Image Security</div>
+        <div class="proj-desc">Transfer learning models with SHAP interpretability + DCT watermarking for tamper-proof medical images.</div>
+        <div class="proj-stack">
+          <span class="ptag">Python</span><span class="ptag">VGG16</span><span class="ptag">TensorFlow</span><span class="ptag">SHAP</span><span class="ptag">Streamlit</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="openModal('ocr')">
+      <div class="proj-thumb proj-thumb-ocr">
+        <div class="proj-cat">Computer Vision</div>
+        <svg class="art" viewBox="0 0 400 200"><rect x="120" y="50" width="160" height="100" rx="4" fill="none" stroke="#7c5cfc" stroke-width="0.8" opacity="0.5"/><rect x="135" y="65" width="30" height="35" rx="2" fill="#7c5cfc20"/><rect x="175" y="65" width="30" height="35" rx="2" fill="#7c5cfc15"/><rect x="215" y="65" width="30" height="35" rx="2" fill="#7c5cfc20"/><rect x="135" y="110" width="30" height="25" rx="2" fill="#7c5cfc15"/><rect x="175" y="110" width="30" height="25" rx="2" fill="#7c5cfc20"/><rect x="215" y="110" width="30" height="25" rx="2" fill="#7c5cfc15"/><line x1="280" y1="100" x2="340" y2="80" stroke="#9d7fff" stroke-width="0.8" opacity="0.6"/><line x1="280" y1="100" x2="340" y2="100" stroke="#9d7fff" stroke-width="0.8" opacity="0.6"/><line x1="280" y1="100" x2="340" y2="120" stroke="#9d7fff" stroke-width="0.8" opacity="0.6"/></svg>
+        <span class="proj-explore">View Case Study →</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Handwritten Character Recognition</div>
+        <div class="proj-desc">LeNet-5 CNN pipeline to classify A–Z and 0–9 characters. Built for OCR, document digitisation, and form automation.</div>
+        <div class="proj-stack">
+          <span class="ptag">Python</span><span class="ptag">LeNet-5</span><span class="ptag">TensorFlow</span><span class="ptag">OpenCV</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card" onclick="openModal('churn')">
+      <div class="proj-thumb proj-thumb-churn">
+        <div class="proj-cat">Predictive ML</div>
+        <svg class="art" viewBox="0 0 400 200"><polyline points="60,160 100,130 150,145 200,90 250,110 300,60 360,40" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.8"/><circle cx="60" cy="160" r="4" fill="#f59e0b" opacity="0.9"/><circle cx="150" cy="145" r="4" fill="#f59e0b" opacity="0.9"/><circle cx="250" cy="110" r="4" fill="#f59e0b" opacity="0.9"/><circle cx="360" cy="40" r="4" fill="#f59e0b" opacity="0.9"/><line x1="60" y1="170" x2="360" y2="170" stroke="#ffffff10" stroke-width="0.8"/><line x1="60" y1="30" x2="60" y2="170" stroke="#ffffff10" stroke-width="0.8"/><polyline points="60,160 100,150 150,155 200,120 250,130 300,90 360,70" fill="none" stroke="#7c5cfc" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/></svg>
+        <span class="proj-explore">View Case Study →</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-title">Customer Churn Prediction — Telecom</div>
+        <div class="proj-desc">ML models to identify at-risk telecom customers using behavioral data. EDA, feature engineering, and retention insights.</div>
+        <div class="proj-stack">
+          <span class="ptag">Python</span><span class="ptag">Scikit-learn</span><span class="ptag">Pandas</span><span class="ptag">Matplotlib</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-eyebrow">✦ Expertise</div>
+  <div class="sec-title" style="margin-bottom:10px;">Technical <em>Skills</em></div>
+  <div class="sec-sub">Tools and technologies I work with.</div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="skill-name">AI / ML</div>
+      <div class="skill-tags"><span class="stag hl">Python</span><span class="stag hl">TensorFlow</span><span class="stag hl">PyTorch</span><span class="stag">OpenCV</span><span class="stag">SHAP</span><span class="stag">Scikit-learn</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+      <div class="skill-name">Gen AI</div>
+      <div class="skill-tags"><span class="stag hl">Claude API</span><span class="stag hl">LangChain</span><span class="stag hl">RAG</span><span class="stag">Prompt Eng.</span><span class="stag">AI Agents</span><span class="stag">LLMs</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="skill-name">Frontend</div>
+      <div class="skill-tags"><span class="stag hl">React.js</span><span class="stag hl">Next.js</span><span class="stag">TypeScript</span><span class="stag">Node.js</span><span class="stag">HTML/CSS</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+      <div class="skill-name">Databases</div>
+      <div class="skill-tags"><span class="stag hl">PostgreSQL</span><span class="stag hl">Redis</span><span class="stag">MongoDB</span><span class="stag">MySQL</span><span class="stag">Prisma</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+      <div class="skill-name">Cloud & DevOps</div>
+      <div class="skill-tags"><span class="stag hl">AWS</span><span class="stag hl">Azure</span><span class="stag">Docker</span><span class="stag">Vercel</span><span class="stag">GitHub Actions</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg></div>
+      <div class="skill-name">Languages</div>
+      <div class="skill-tags"><span class="stag hl">Python</span><span class="stag hl">TypeScript</span><span class="stag">Java</span><span class="stag">C</span><span class="stag">C++</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="skill-name">Security & IoT</div>
+      <div class="skill-tags"><span class="stag">Kali Linux</span><span class="stag">Wireshark</span><span class="stag">ESP32</span><span class="stag">Arduino</span><span class="stag">Nmap</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+      <div class="skill-name">Prompt Engineering</div>
+      <div class="skill-tags"><span class="stag hl">Zero-shot</span><span class="stag hl">Few-shot</span><span class="stag hl">CoT</span><span class="stag">Role-based</span><span class="stag">Structured Output</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-eyebrow">✦ Background</div>
+  <div class="sec-title" style="margin-bottom:40px;">Experience & <em>Education</em></div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">2026 · Remote</div>
+      <div>
+        <div class="exp-role">Python Core Intern</div>
+        <div class="exp-org">Redback Academy</div>
+        <div class="exp-desc">Completed Python implementations covering OOP, data structures, and backend development. Leveraged AI tools including ChatGPT and GitHub Copilot to accelerate debugging and code review workflows.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2022–2027 · Vellore</div>
+      <div>
+        <div class="exp-role">Integrated M.Tech — Software Engineering</div>
+        <div class="exp-org">Vellore Institute of Technology (VIT) · CGPA 7.54 / 10</div>
+        <div class="exp-desc">Specialising in ML/AI and full-stack systems. Active in hackathons and placement prep. Pursuing AWS Cloud Architecting and Azure AZ-900 certifications.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div style="text-align:center;margin-bottom:48px;">
+    <div class="sec-eyebrow">✦ Get In Touch</div>
+    <div class="sec-title">Open to opportunities.<br><em>Let's talk.</em></div>
+    <p class="sec-sub" style="margin-top:10px;">Internships, placements, and high-impact collaborations.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card" onclick="window.open('https://linkedin.com/in/sahanar7704')">
+      <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-val">sahanar7704</div>
+        <div class="contact-hint">Connect professionally</div>
+      </div>
+    </div>
+    <div class="contact-card" onclick="window.open('https://github.com/Sahana7704')">
+      <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-val">Sahana7704</div>
+        <div class="contact-hint">Explore the code</div>
+      </div>
+    </div>
+    <div class="contact-card" onclick="window.open('mailto:sahana.ramesh.7788@gmail.com')">
+      <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val">sahana.ramesh.7788@gmail.com</div>
+        <div class="contact-hint">Shoot me a message</div>
+      </div>
+    </div>
+    <div class="contact-card" onclick="window.open('https://drive.google.com/file/d/1pT2sRcfAHvQriEB7L9RkvJId5_7AReat/view?usp=sharing')">
+      <div class="contact-icon" style="background:var(--acc-bg);border-color:var(--acc-border);"><svg viewBox="0 0 24 24" style="stroke:var(--acc)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div>
+        <div class="contact-label">Resume ↗</div>
+        <div class="contact-val" style="color:var(--acc2);">View on Google Drive</div>
+        <div class="contact-hint">Full experience & certs</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:24px;font-size:13px;color:var(--muted);font-family:'Space Mono',monospace;">Response within 24 hours · Currently open to opportunities</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-left">Built by <span>R. Sahana</span> · VIT Vellore · 2026</div>
+  <div class="footer-right" style="font-size:12px;color:var(--muted);">Open to internships · placements · freelance</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-hero" id="modal-hero">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div>
+        <div class="modal-cat" id="modal-cat"></div>
+        <div class="modal-title" id="modal-title"></div>
+        <div class="modal-subtitle" id="modal-subtitle"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-sections" id="modal-sections"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = {
+  inv:{
+    cat:'Backend Systems',
+    title:'Inventory Reservation System',
+    subtitle:'Next.js · PostgreSQL · Redis · TypeScript · Vercel',
+    bg:'linear-gradient(135deg,#0d0a28 0%,#1a1045 50%,#0a0d35 100%)',
+    desc:'A conflict-free inventory management system built for a healthcare platform to ensure reliable, real-time booking without double-reservations. Solves the hard problem of multiple users booking the same item simultaneously at scale.',
+    sections:[
+      {icon:'⚠️',title:'The Problem',text:'Multiple users attempting to reserve the same healthcare inventory item simultaneously leads to double-bookings — a critical failure in medical supply chains where errors have real consequences.'},
+      {icon:'🔍',title:'Why Existing Solutions Fail',text:'Simple availability checks fail under concurrent load. Without atomic operations and distributed coordination, race conditions are inevitable at scale.'},
+      {icon:'💡',title:'The Solution',text:'Database-level locking combined with a Redis-backed distributed queue ensures each reservation is processed atomically. Duplicate requests are safely deduplicated before they hit the DB.'},
+      {icon:'🧠',title:'Architecture',text:'Request → Redis queue → atomic DB lock check → reservation write → expiry scheduler. Expired reservations are auto-cancelled, reducing manual intervention and support load.',full:true},
+      {icon:'🎨',title:'Product Thinking',text:'Built for healthcare operations staff, not engineers. The system is transparent: users see real-time availability, and conflicts surface as clear feedback, not silent failures.'},
+      {icon:'🧩',title:'Challenges Solved',text:'Preventing race conditions under concurrent load without excessive DB locking overhead. Handling duplicate submissions from retried requests safely using idempotency keys.'},
+      {icon:'📈',title:'Impact & Results',text:'Zero double-bookings in production testing. Auto-expiry reduced stale reservations by eliminating manual clean-up. Fully deployed and production-tested on Vercel cloud infrastructure.',full:true},
+      {icon:'🔧',title:'Key Features',text:'Database locking · Redis distributed queue · Duplicate request handling · Automatic reservation expiry · Idempotency keys · Vercel production deployment.',full:true},
+      {stack:true,tags:['Next.js','PostgreSQL','Redis','TypeScript','Vercel']}
+    ]
+  },
+  pcos:{
+    cat:'Healthcare AI',
+    title:'PCOS Detection & Medical Image Security',
+    subtitle:'Clinical ML + Medical Image Watermarking',
+    bg:'linear-gradient(135deg,#0a1628 0%,#0d2545 50%,#0a3d2e 100%)',
+    desc:'A dual-system ML pipeline for PCOS risk prediction and medical image tamper detection. Combines transfer learning with cryptographic watermarking to create clinically interpretable and security-hardened outputs.',
+    sections:[
+      {icon:'⚠️',title:'The Problem',text:'PCOS affects 1 in 10 women globally but remains underdiagnosed due to complex symptom overlap. Medical images shared across platforms are also vulnerable to tampering, raising trust issues.'},
+      {icon:'🔍',title:'Why Existing Solutions Fail',text:'Generic classifiers lack clinical interpretability. Image integrity tools are often bolt-on, not embedded into the model pipeline.'},
+      {icon:'💡',title:'The Solution',text:'VGG16 and EfficientNetB3 transfer learning benchmarked against traditional ML. SHAP surfaced the top clinical risk factors. DCT spread-spectrum watermarking + SHA-256 hash verification embedded into every image.'},
+      {icon:'🧠',title:'AI Architecture',text:'VGG16 & EfficientNetB3 fine-tuned on PCOS dataset → ensemble predictions → SHAP post-hoc explainability → DCT watermark injection → SHA-256 tamper check at retrieval.',full:true},
+      {icon:'🎨',title:'Product Thinking',text:'Designed for clinicians, not engineers. SHAP outputs are visualised as human-readable risk factor rankings. Tamper detection is a one-click check.'},
+      {icon:'🧩',title:'Challenges Solved',text:'Colab RAM constraints required batch-wise processing. Achieving watermark imperceptibility while maintaining detectability required extensive DCT coefficient tuning.'},
+      {icon:'📈',title:'Impact & Results',text:'Strong classification metrics across all models. Watermarking is visually imperceptible (PSNR > 40 dB) and detects any pixel-level tampering. Deployed to Streamlit Cloud.',full:true},
+      {icon:'🔧',title:'Key Features',text:'Transfer learning (VGG16 + EfficientNetB3) · SHAP interpretability · DCT watermarking · SHA-256 tamper detection · Streamlit deployment.',full:true},
+      {stack:true,tags:['Python','TensorFlow','VGG16','EfficientNetB3','Scikit-learn','SHAP','OpenCV','Streamlit','AWS']}
+    ]
+  },
+  ocr:{
+    cat:'Computer Vision',
+    title:'Handwritten Character Recognition',
+    subtitle:'LeNet-5 CNN · OCR Pipeline',
+    bg:'linear-gradient(135deg,#0a2028 0%,#0d3545 50%,#0a2820 100%)',
+    desc:'A full OCR pipeline to classify handwritten A–Z and 0–9 characters using a custom LeNet-5 CNN. Built for document digitisation, form automation, and license plate reading.',
+    sections:[
+      {icon:'⚠️',title:'The Problem',text:'Digitising handwritten documents manually is slow and error-prone. Automated tools that handle both letters and digits in one pipeline are rare.'},
+      {icon:'🔍',title:'Why Existing Solutions Fail',text:'Off-the-shelf OCR tools are heavyweight or trained only on printed text. Custom CNNs on this task are underexplored in accessible frameworks.'},
+      {icon:'💡',title:'The Solution',text:'A LeNet-5 CNN trained end-to-end on combined letter and digit datasets. Preprocessing handles real-world noise: grayscale → binarisation → segmentation → classification.'},
+      {icon:'🧠',title:'AI Architecture',text:'Input image → grayscale → binarisation → character segmentation → LeNet-5 (Conv→Pool→Conv→Pool→FC→FC→Softmax) → class label output (36 classes).',full:true},
+      {icon:'🎨',title:'UX Decisions',text:'Pipeline designed as a standalone Python module. Outputs are character strings, not raw logits — immediately usable downstream.'},
+      {icon:'🧩',title:'Challenges Solved',text:'Handling class imbalance between letters and digits. Tuning binarisation thresholds for varied handwriting styles.'},
+      {icon:'📈',title:'Impact & Results',text:'Reliable accuracy across all 36 character classes. Applicable to OCR, form automation, postal code reading, and license plate recognition.',full:true},
+      {icon:'🔧',title:'Key Features',text:'LeNet-5 CNN · ReLU + Softmax · Preprocessing pipeline · 36-class output · Modular Python · TensorFlow/Keras.',full:true},
+      {stack:true,tags:['Python','TensorFlow','Keras','LeNet-5','OpenCV','NumPy','Matplotlib']}
+    ]
+  },
+  churn:{
+    cat:'Predictive ML',
+    title:'Customer Churn Prediction — Telecom',
+    subtitle:'Scikit-learn · Feature Engineering · EDA',
+    bg:'linear-gradient(135deg,#281a0a 0%,#3d2a0a 50%,#281a0a 100%)',
+    desc:'An end-to-end ML pipeline to identify telecom customers at risk of churning, using behavioral and usage data. Produces retention-focused insights directly usable by business teams.',
+    sections:[
+      {icon:'⚠️',title:'The Problem',text:'Telecom companies lose 15–25% of customers annually. Identifying who\'s about to leave — before they do — saves millions in revenue and acquisition costs.'},
+      {icon:'🔍',title:'Why Existing Solutions Fail',text:'Simple rules-based systems miss subtle churn signals. Black-box models give no actionable insight.'},
+      {icon:'💡',title:'The Solution',text:'Full EDA → feature engineering on behavioral signals → Logistic Regression and Random Forest trained and compared → feature importance visualised for business use.'},
+      {icon:'🧠',title:'AI Architecture',text:'Raw data → EDA → imputation → encoding → feature engineering → LR vs RF comparison → feature importance → retention strategy output.',full:true},
+      {icon:'🎨',title:'Product Thinking',text:'Outputs framed as business decisions. Feature importance rankings are expressed as customer behavior insights: "high international plan usage = 3× churn risk."'},
+      {icon:'🧩',title:'Challenges Solved',text:'Class imbalance addressed through stratified sampling. Selecting features that are both predictive and actionable.'},
+      {icon:'📈',title:'Impact & Results',text:'Strong precision, recall, and F1 scores. Feature analysis surfaced 5 key churn drivers. Retention strategy recommendations derived directly from model outputs.',full:true},
+      {icon:'🔧',title:'Key Features',text:'EDA & visualisation · Feature engineering · Logistic Regression + Random Forest · Feature importance · Actionable retention insights.',full:true},
+      {stack:true,tags:['Python','Scikit-learn','Pandas','NumPy','Matplotlib','Seaborn']}
+    ]
+  }
+};
+
+function openModal(key){
+  const p=projects[key];
+  document.getElementById('modal-cat').textContent=p.cat;
+  document.getElementById('modal-title').textContent=p.title;
+  document.getElementById('modal-subtitle').textContent=p.subtitle;
+  document.getElementById('modal-hero').style.background=p.bg;
+  document.getElementById('modal-desc').textContent=p.desc;
+  const secs=document.getElementById('modal-sections');
+  secs.innerHTML='';
+  p.sections.forEach(s=>{
+    if(s.stack){
+      const d=document.createElement('div');
+      d.className='modal-sec full';
+      d.innerHTML='<div class="modal-sec-title"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Tech Stack</div><div class="modal-stack">'+s.tags.map(t=>`<span class="modal-tag">${t}</span>`).join('')+'</div>';
+      secs.appendChild(d);
+    } else {
+      const d=document.createElement('div');
+      d.className='modal-sec'+(s.full?' full':'');
+      d.innerHTML=`<div class="modal-sec-title">${s.icon} ${s.title}</div><p>${s.text}</p>`;
+      secs.appendChild(d);
+    }
+  });
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('modal-overlay').scrollTop = 0;
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){
+  if(e.target===document.getElementById('modal-overlay')) closeModal();
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
+</script>
